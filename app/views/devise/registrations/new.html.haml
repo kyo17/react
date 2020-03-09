@@ -1,0 +1,31 @@
+%h2.title.is-3 Regístrate
+%hr
+
+.has-text-centered.mb20
+  = render "devise/shared/socials"
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  .field
+    = f.label "Correo electrónico", class: "label"
+    .control
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+
+  .field
+    = f.label "Constraseña", class: "label"
+    .control
+      = f.password_field :password, autocomplete: "off", class: "input"
+    - if @minimum_password_length
+      %em.help (#{@minimum_password_length} caracteres mínimo)
+
+  .field
+    = f.label "Confirma Constraseña", class: "label"
+    .control
+      = f.password_field :password_confirmation, autocomplete: "off", class: "input"
+
+  .actions.has-text-right
+    = f.submit "Registrarme", class: "button is-primary"
+
+.has-text-right.mt20
+  = render "devise/shared/links"

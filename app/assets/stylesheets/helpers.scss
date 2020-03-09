@@ -1,0 +1,63 @@
+// this generates the class .mb10 for example
+@for $i from 1 through 5{
+  .mb#{$i*10} { margin-bottom: $i*10px; }
+}
+
+// this generates the class .mt10 for example
+@for $i from 1 through 5{
+  .mt#{$i*10} { margin-top: $i*10px; }
+}
+
+// this generates the class .ml10 for example
+@for $i from 1 through 5{
+  .ml#{$i*10} { margin-left: $i*10px; }
+}
+
+// this generates the class .mr10 for example
+@for $i from 1 through 5{
+  .mr#{$i*10} { margin-right: $i*10px; }
+}
+
+// this generates the class .mv10 for example
+@for $i from 1 through 5{
+  .mv#{$i*10} {
+    margin-top: $i*10px;
+    margin-bottom: $i*10px;
+  }
+}
+
+// this generates the class .pb10 for example
+@for $i from 1 through 5{
+  .pb#{$i*10} { padding-bottom: $i*10px; }
+}
+
+// this generates the class .pt10 for example
+@for $i from 1 through 5{
+  .pt#{$i*10} { padding-top: $i*10px; }
+}
+
+// this generates the class .pl10 for example
+@for $i from 1 through 5{
+  .pl#{$i*10} { padding-left: $i*10px; }
+}
+
+// this generates the class .pr10 for example
+@for $i from 1 through 5{
+  .pr#{$i*10} { padding-right: $i*10px; }
+}
+
+// this generates the class .pv10 for example
+@for $i from 1 through 5{
+  .pv#{$i*10} {
+    padding-top: $i*10px;
+    padding-bottom: $i*10px;
+  }
+}
+
+// this generates the class .ph10 for example
+@for $i from 1 through 5{
+  .ph#{$i*10} {
+    padding-right: $i*10px;
+    padding-left: $i*10px;
+  }
+}

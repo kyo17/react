@@ -1,0 +1,64 @@
+$facebook-blue: #3b5998;
+$facebook-blue-strong: #00287f;
+$light-blue: #e1f5fe;
+$white: #fff;
+$red: #f44336;
+$yellow: #ffeb3b;
+$blue: #2398EA;
+$black: #333;
+
+html, body {
+  background-color: $light-blue;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+html.has-navbar-fixed-top {
+  padding-top: 5.25rem;
+}
+
+.facebook-button {
+  background-color: $facebook-blue;
+  color: $white;
+  display: block;
+  padding: 5px;
+  width: 100%;
+  &:hover {
+    background-color: $facebook-blue-strong;
+    color: $white;
+  }
+}
+
+.form-errors {
+  padding-bottom: 20px;
+  .error {
+    border-left: 5px solid red;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+}
+
+.media-content {
+  overflow: hidden;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.red {
+  color: $red;
+}
+
+.round-image {
+  border-radius: 50%;
+}
+
+.title-header {
+  font-family: 'Pacifico', cursive;
+}
+
+.yellow {
+  color: $yellow;
+}

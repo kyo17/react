@@ -1,0 +1,18 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    %ul.form-errors
+      - @post.errors.full_messages.each do |error|
+        %li.error= error
+
+  .field
+    = f.label "Nombre", class: "label"
+    .control
+      = f.text_field :name, class: "input"
+
+  .field
+    = f.label "Contenido", class: "label"
+    .control
+      = f.text_area :content, class: "textarea"
+
+  .actions
+    = f.submit 'Guardar', class: "button is-primary"

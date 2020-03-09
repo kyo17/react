@@ -1,0 +1,15 @@
+#comment-modal.modal
+  .modal-background
+  .modal-card
+    %header.modal-card-head
+      %p.modal-card-title Comenta
+      %button#comment-close-button.modal-close.is-large.delete(aria-label="close")
+    %section.modal-card-body
+      = form_for ([@post, @post.comments.build]) do |f|
+        .field
+          = f.label "Mensaje", class: "label"
+          .control
+            = f.text_area :content, class: "textarea"
+
+        .actions
+          = f.submit 'Comentar', class: "button is-primary"

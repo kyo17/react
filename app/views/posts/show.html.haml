@@ -1,0 +1,16 @@
+.columns
+  .column.has-text-right
+    = link_to 'Regresar', posts_path
+.columns
+  .column.is-half.is-offset-one-quarter
+    = render "partials/post_card", post: @post
+    %hr
+    .columns
+      .column
+        %h4.title.is-4 Comentarios (#{@post.comments_count})
+      .column.has-text-right
+        %a#comment-button.button.is-primary(data-target="#modal") Comentar
+    - unless @post.comments.empty?
+      %div.comments
+        = render @post.comments
+    = render "comments/form"

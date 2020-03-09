@@ -1,0 +1,35 @@
+.box
+  %article.media
+    .media-left
+      %figure.image.is-64x64
+        - if post.user.image.url.nil?
+          %img.round-image(src="https://bulma.io/images/placeholders/64x64.png" alt="Image")
+        - else
+          %img.round-image(src="#{post.user.image.medium.url}" alt="Image")
+    .media-content
+      .content
+        %p
+          %strong
+            = link_to post.name, post_path(post)
+          %small.has-text-weight-semibold
+            = print_username(post.user)
+          %small.is-italic.is-pulled-right= time_ago_in_words(post.created_at)
+          %br
+          = post.content
+      %nav.level.is-mobile.post-icons-container
+        .level-left
+          = link_to post_path(post), class: 'level-item' do
+            %span.icon.is-small
+              = fa_icon "comment"
+              %span.counter= post.comments_count
+          %a.level-item
+            %span.icon.is-small
+              = fa_icon "retweet"
+              %span.counter 12
+          = link_to post_like_path(post), class:"level-item", method: :put, remote: true do
+            %span.icon.is-small
+              - if post.get_upvotes.size > 0
+                = fa_icon "heart", id: "like-button-#{post.id}", class: "red"
+              - else
+                = fa_icon "heart-o", id: "like-button-#{post.id}"
+              %span.counter(id="likes-counter-#{post.id}")= post.get_upvotes.size

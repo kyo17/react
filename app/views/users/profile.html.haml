@@ -1,0 +1,32 @@
+.columns
+  .column.is-three-fifths.is-offset-one-fifth
+    .card.profile
+      .card-content
+        %figure.image.is-128x128
+          - if @user.image.url.nil?
+            %img.round-image(src="https://bulma.io/images/placeholders/32x32.png")
+          - else
+            %img.round-image(src="#{@user.image.big.url}")
+        .has-text-centered.mt20
+          %p.title.is-3= @user.email
+
+          - if !@user.username.empty?
+            %p.subtitle.is-5 @#{@user.username}
+          - else
+            %p.subtitle.is-5
+              = link_to "Escribe tu usuario", edit_user_registration_path
+
+          - if !@user.name.nil?
+            %p.subtitle.is-5= @user.name
+          - else
+            %p.subtitle.is-5
+              = link_to "Escribe tu nombre", edit_user_registration_path
+      %footer.card-footer
+        = link_to "Amigos (#{@user.friends.count})", friends_path, class: "card-footer-item"
+        - if @user.id == current_user.id
+          = link_to "Invitaciones (#{friend_request_count})", friend_requests_path, class: "card-footer-item"
+          = link_to "Configuración", edit_user_registration_path, class: "card-footer-item"
+.columns
+  .column.is-half.is-offset-one-quarter
+    - @user.posts.each do |post|
+      = render "partials/post_card", post: post

@@ -1,0 +1,9 @@
+console.log("Holaaaaaaaa");
+<% if current_user.liked? @post %>
+  $('#like-button-<%= @post.id %>').addClass('fa-heart red');
+  $('#like-button-<%= @post.id %>').removeClass('fa-heart-o');
+<% else %>
+  $('#like-button-<%= @post.id %>').removeClass('fa-heart red');
+  $('#like-button-<%= @post.id %>').addClass('fa-heart-o');
+<% end %>
+$('#likes-counter-<%= @post.id %>').html("<%= @post.get_upvotes.size %>");

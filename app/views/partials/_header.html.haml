@@ -1,0 +1,37 @@
+%nav.navbar.is-fixed-top(role="navigation" aria-label="main navigation")
+  .container
+    .navbar-brand
+      %a.navbar-item(href="/")
+        %span.title.is-2.title-header.mv10 Tweety
+
+      %button.button.navbar-burger
+        %span
+        %span
+        %span
+
+    .navbar-menu
+      .navbar-start
+        .navbar-item
+          = link_to "Publica", new_post_path
+      .navbar-end
+        .navbar-item
+          = form_tag(users_path, :method => "get", id: "search-form") do
+            .field.has-addons
+              .control
+                = submit_tag "Buscar", class: "button is-info"
+              .control
+                = text_field_tag :search, params[:search], class: "input", placeholder: "Busca a tus amigos"
+        .navbar-item
+          = link_to favorites_path do
+            = fa_icon "heart", class: "red"
+        .navbar-item
+          %figure.image.is-32x32.mr10
+            - if current_user.image.url.nil?
+              %img.round-image(src="https://bulma.io/images/placeholders/32x32.png")
+            - else
+              %img.round-image(src="#{current_user.image.small.url}")
+          = print_username(current_user)
+        .navbar-item
+          = link_to "Perfil", profile_path(current_user.id), class: "#{'friend-requests-count' if friend_request_count > 0}", data: { badge: "#{friend_request_count}" }
+        .navbar-item
+          = link_to "Salir", destroy_user_session_path, method: :delete

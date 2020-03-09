@@ -1,0 +1,11 @@
+.columns.is-multiline
+  - if @users.present?
+    - @users.each do |user|
+      .column.is-one-third
+        = render "partials/user_card", user: user, invitation: false
+  - else
+    .column.is-12.has-text-centered
+      .box
+        %h3.title.is-3
+          No hay usuarios que contengan en su correo o nombre
+        %h4.subtitle.is-3.has-text-weight-bold (#{params[:search]})

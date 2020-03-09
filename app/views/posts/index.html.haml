@@ -1,0 +1,4 @@
+.columns
+  .column.is-half.is-offset-one-quarter
+    - @posts.each do |post|
+      = render "partials/post_card", post: post

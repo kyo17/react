@@ -1,0 +1,24 @@
+.box
+  %article.media
+    .media-left
+      %figure.image.is-64x64
+        - if comment.user.image.nil?
+          %img(src="https://bulma.io/images/placeholders/64x64.png" alt="Image")
+        - else
+          %img(src="#{comment.user.image}" alt="Image")
+    .media-content
+      .content
+        %p
+          %strong
+            = print_name(comment.user)
+          %small.has-text-weight-semibold
+            = print_username(comment.user)
+          %small.is-italic.is-pulled-right= time_ago_in_words(comment.created_at)
+          %br
+          = comment.content
+      - if comment.user.id == current_user.id
+        %nav.level.is-mobile.post-icons-container
+          .level-left
+            = link_to post_comment_path(comment.post, comment), method: :delete, data: { confirm: "Estas seguro?" }, class: 'level-item' do
+              %span.icon.is-small
+                = fa_icon "trash"
