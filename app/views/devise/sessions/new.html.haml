@@ -8,12 +8,12 @@
   .field
     = f.label "Correo electrónico", class: "label"
     .control
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input is-rounded"
 
   .field
     = f.label "Constraseña", class: "label"
     .control
-      = f.password_field :password, autocomplete: "off", class: "input"
+      = f.password_field :password, autocomplete: "off", class: "input is-rounded"
 
   - if devise_mapping.rememberable?
     .field
@@ -23,7 +23,7 @@
         %span Recuérdame
 
   .actions.has-text-right
-    = f.submit "Ingresar", class: "button is-primary"
+    = f.submit "Ingresar", class: "button is-primary is-rounded"
 
 .has-text-right.mt20
   = render "devise/shared/links"
