@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'devise'
 gem 'figaro'
+gem 'rspec-rails'
+
 #gem 'mysql2', '~> 0.4.10'
 gem 'selenium-webdriver'
 gem 'rails-assets-bulma', source: 'https://rails-assets.org'
